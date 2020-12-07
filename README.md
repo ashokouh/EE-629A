@@ -36,7 +36,8 @@ Then, stream URL and stream key should be copied as illustrated in Fig. 7. These
 
 
 ### Step 5.
-Following copying the stream key and URL, we need to get back to our Raspberry Pi terminal. In order to stream the video on YouTube, we should use the following command that uses the ffmpeg library to encode the video, and change some settings such as number of frames per second.__raspivid -o - -t 0 -vf -hf -fps 10 -b 500000 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/[STREAM-KEY]__
+Following copying the stream key and URL, we need to get back to our Raspberry Pi terminal. In order to stream the video on YouTube, we should use the following command that uses the ffmpeg library to encode the video, and change some settings such as number of frames per second.
+__raspivid -o - -t 0 -vf -hf -fps 10 -b 500000 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/[STREAM-KEY]__
 In this command, we should replace the [Stream-Key] by our own stream key copied in the precious step. After almost half a minute within entering the command above, log information of the camera is shown continuously.
 raspivid is the command line tool for capturing video with Raspberry Pi camera module. [reference]
 As we just want to stream the video over the YouTube live channel we use -t 0. This means that we want to save 0 milliseconds of the video on a local memory. -vf -hf helps flip the video 180 degrees. It is used when the camera orientation is upside-down. Using -fps could specify the number of frames being streamed per second. The less frames being streamed per second, the faster the streaming system, and in turn, the less the time lag for online application.
