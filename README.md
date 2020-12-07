@@ -6,3 +6,7 @@ This project is applicable for monitoring an environment by streaming the camera
 Raspberry Pi.
 Raspberry Pi mini camera for sensing the environment.
 A cloud for up/down-streaming the video.
+
+
+### Step 1.
+Before powering up the Raspberry Pi, I connected the camera into the camera serial interface (CSI) slot as shown in Fig. 1. It should be noted that the blue part on the head of ribbon cable should face the USB ports.
