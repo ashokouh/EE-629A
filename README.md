@@ -38,7 +38,7 @@ Upon running the code, a blue panel pops up, where one can change the configurat
 </figure>
 
 ### Step 3.
-In this project, YouTube was selected as the online cloud where the video captured by Raspberry Pi camera is supposed stream to. Following this idea, we need to encode the videos. To  this end, ffmpeg library was chosen. Thus, using the following command, we may install ffmpeg library. [reference]
+In this project, YouTube was selected as the online cloud where the video captured by Raspberry Pi camera is supposed stream to. Following this idea, we need to encode the videos. To  this end, ffmpeg library was chosen. Thus, using the following command, we may install ffmpeg library. [reference](https://www.google.com/url?q=https%3A%2F%2Fffmpeg.org%2F&sa=D&sntz=1&usg=AFQjCNGOaytuiXAoH-y-RNvBhPOY43qdTg)
 sudo apt-get install ffmpeg
 
 ### Step 4.
