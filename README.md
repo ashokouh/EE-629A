@@ -38,7 +38,7 @@ Upon running the code, a blue panel pops up, where one can change the configurat
 </figure>
 
 ### Step 3.
-In this project, YouTube was selected as the online cloud where the video captured by Raspberry Pi camera is supposed stream to. Following this idea, we need to encode the videos. To  this end, ffmpeg library was chosen. Thus, using the following command, we may install ffmpeg library. [reference](https://www.google.com/url?q=https%3A%2F%2Fffmpeg.org%2F&sa=D&sntz=1&usg=AFQjCNGOaytuiXAoH-y-RNvBhPOY43qdTg)
+In this project, YouTube was selected as the online cloud where the video captured by Raspberry Pi camera is supposed stream to. Following this idea, we need to encode the videos. To  this end, ffmpeg library was chosen. Thus, using the following command, we may install ffmpeg library. [[reference](https://www.google.com/url?q=https%3A%2F%2Fffmpeg.org%2F&sa=D&sntz=1&usg=AFQjCNGOaytuiXAoH-y-RNvBhPOY43qdTg)]
 sudo apt-get install ffmpeg
 
 ### Step 4.
@@ -68,7 +68,7 @@ Then, stream URL and stream key should be copied as illustrated in Fig. 7. These
 Following copying the stream key and URL, we need to get back to our Raspberry Pi terminal. In order to stream the video on YouTube, we should use the following command that uses the ffmpeg library to encode the video, and change some settings such as number of frames per second.  
 raspivid -o - -t 0 -vf -hf -fps 10 -b 500000 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/[STREAM-KEY]  
 In this command, we should replace the [Stream-Key] by our own stream key copied in the precious step. After almost half a minute within entering the command above, log information of the camera is shown continuously.
-raspivid is the command line tool for capturing video with Raspberry Pi camera module. [reference]
+raspivid is the command line tool for capturing video with Raspberry Pi camera module. [[reference](https://www.google.com/url?q=https%3A%2F%2Fwww.raspberrypi.org%2Fdocumentation%2Fusage%2Fcamera%2Fraspicam%2Fraspivid.md&sa=D&sntz=1&usg=AFQjCNEKciOzTjb4PhoWLN6OviUY5Dq3xA)]
 As we just want to stream the video over the YouTube live channel we use -t 0. This means that we want to save 0 milliseconds of the video on a local memory. -vf -hf helps flip the video 180 degrees. It is used when the camera orientation is upside-down. Using -fps could specify the number of frames being streamed per second. The less frames being streamed per second, the faster the streaming system, and in turn, the less the time lag for online application.
 
 <figure class="image">
@@ -86,4 +86,4 @@ After streaming the camera, we may use our security camera on any device on whic
 
 
 
-To recapitulate, we developed a security camera using Raspberry Pi board. In this system, one can monitor his room using the authentication on YouTube as the server. Here, you can find the reference used for this project.
+To recapitulate, we developed a security camera using Raspberry Pi board. In this system, one can monitor his room using the authentication on YouTube as the server. Here, you can find the [[reference](https://www.google.com/url?q=https%3A%2F%2Fwww.digikey.com%2Fen%2Fmaker%2Fblogs%2Fstreaming-live-to-youtube-and-facebook-using-raspberry-pi-camera&sa=D&sntz=1&usg=AFQjCNECELvqQOUP_hf_-ZfzKQ604Gegow)] used for this project.
