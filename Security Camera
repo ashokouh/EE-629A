@@ -1,6 +1,8 @@
-# ** Project title: Security camera **
-## ** Description **
-This project is applicable for monitoring an environment by streaming the camera recording to an online cloud. The video could be accessed on the cell phone by authentication. What I need to use for online monitoring include:
-Raspberry Pi.
-Raspberry Pi mini camera for sensing the environment.
-A cloud for up/down-streaming the video.
+
+
+
+
+
+
+# In terminal, run the code below:
+raspivid -o - -t 0 -vf -hf -fps 10 -b 500000 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/[STREAM-KEY]
